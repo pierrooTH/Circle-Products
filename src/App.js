@@ -4,7 +4,7 @@ import './css/Products.css'
 import Navigation from './Components/Navigation';
 import Products from './Components/Products';
 import {BrowserRouter as Router, Route, Switch,} from 'react-router-dom';
-import ProductsDetails from './Components/ProductsDetails1';
+import ProductsDetails from './Components/ProductsDetails';
 
 
 export default class App extends Component {

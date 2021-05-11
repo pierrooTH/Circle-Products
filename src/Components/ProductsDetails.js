@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import '../css/ProductsDetails.css'
+import {AiOutlineArrowLeft} from "react-icons/ai";
+import {Link} from 'react-router-dom'
 
 export default class ProductsDetails extends Component {
     state = {
@@ -11,6 +13,7 @@ export default class ProductsDetails extends Component {
         const {location: {state: {listProduct}}} = this.props;
         return (
             <div className="products__details">
+                <Link to="/"><AiOutlineArrowLeft className="nav__arrow" /></Link>
                 <h1 className="details__title">{listProduct.title}</h1>
                 <div className="details__align--desk">
                     <div className="details__img">
@@ -21,7 +24,7 @@ export default class ProductsDetails extends Component {
                         <p className="product__description">{listProduct.description}</p>
                         <h2 className="product__title">Price</h2>
                         <form className="form__price">
-                            <input type="text" value={listProduct.price} />
+                            <input className="input__price" type="text" value={listProduct.price} required/>
                             <p>Price (including VAT): {Math.round((listProduct.price + listProduct.price * 0.2)*100) /100} €</p>
                             <br/>
                             <input className="btn__update" type="submit" value="Update product" />

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../css/Products.css';
 import axios from 'axios';
-import './ProductsDetails1'
+import './ProductsDetails'
 import {Link} from 'react-router-dom'
 
 export default class Products extends Component {
