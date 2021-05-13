@@ -9,7 +9,7 @@ export default class Navigation extends Component {
         return (
             <div className="container">
                 <div className="navigation">
-                    <AiOutlineMenu />
+                    <AiOutlineMenu className="toggle" />
                     <Link to="/"><img className="navigation__img" src={logo} alt="Faux logo Circle Products"/></Link>
                     <ul className="navigation__link">
                     <li>

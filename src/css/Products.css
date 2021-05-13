@@ -31,4 +31,17 @@ thead {
     justify-content: center;
     list-style: none;
 }
-
+.category__orange, .category__green {
+    text-align: center;
+    padding: 8px;
+}
+.category__orange {
+    background-color: #FFA846;
+    color: white;
+    border-radius: 20px;
+}
+.category__green {
+    background-color: #32B436;
+    color: white;
+    border-radius: 50px;
+}

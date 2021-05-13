@@ -47,3 +47,11 @@
     top: 52px;
     left: -16px;
 }
+.toggle {
+    font-size: 1.8rem;
+    color: white;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
