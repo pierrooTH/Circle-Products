@@ -56,9 +56,7 @@ export default class ProductsDetails extends Component {
       
       // Ajout d'une variable qui récupére le premier id trouvé dans le tableau "products"
       const listProduct = products.find((product) => product.id === Number(id))
-      if (!products) {
-          return null
-      };
+      if (!listProduct) return null;
   
       return (
         <div className="products__details">
