@@ -54,7 +54,8 @@ export default function App() {
   } else {
     return (
       <div className="App">
-      <Router>
+      <Router // utilisation de react-router-dom qui permet de créer l'illusion d'avoir plusieurs pages dans notre application
+      > 
         <Navigation/>
         <Switch>        
           <Route // route qui renvoie un lien /products-details/id du produit 
@@ -75,10 +76,5 @@ export default function App() {
       </Router>
     </div>
     )
-  }
-  // utilisation d'une fonction « updatePrice » dans la fonction App(), cela va permettre de l'utiliser dans d'autres composants (cf le contexte en React)
-  
-    
-    // utilisation de react-router-dom qui permet de créer l'illusion d'avoir plusieurs pages dans notre application
-    
+  }    
 }

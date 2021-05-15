@@ -10,16 +10,23 @@ export default class ProductsDetails extends Component {
       // ajout de deux états l'id qu'on récupére de l'API et le prix qui vaut 0
       this.state = { 
           id: this.props.match.params.id, 
-          price: 0
+          price: 0,
+          priceValid: false,
+          submitDisabled: true
         };
     }
     
     // mise en place d'une méthode qui permet de modifier la valeur dans l'input texte 
     updatePrice = (e) => {
-      console.log(e);
+      let priceValid = e.target.value ? true : false;
+      let submitValid = this.state.priceValid
       this.setState({
-        price: e.target.value
+        price: e.target.value,
+        priceValid: priceValid,
+        submitDisabled: !submitValid
+
       });
+      localStorage.setItem('price', e.target.value)
     };
     
     /*
@@ -28,7 +35,6 @@ export default class ProductsDetails extends Component {
     */
     submitHandler = (e) => {
         // permet au clique du bouton que concerver localement la valeur modifiée 
-        localStorage.setItem('price', this.state.price)
       e.preventDefault();
       const {
         match: {
@@ -90,9 +96,10 @@ export default class ProductsDetails extends Component {
                 </p>
                 <br />
                 <input
-                  className="btn__update"
+                  className={this.state.submitDisabled ? "btn__no-update" : "btn__update"}
                   type="submit"
                   value="Update product"
+                  disabled={this.state.submitDisabled}
                 />
               </form>
             </div>

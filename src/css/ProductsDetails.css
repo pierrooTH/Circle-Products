@@ -66,6 +66,9 @@
     font-style: italic;
     color: rgb(95, 95, 95);
 }
+.btn__no-update {
+    display: none;
+}
 @media screen and (max-width: 1050px) {
     .details__align--desk {
         flex-wrap: wrap;
