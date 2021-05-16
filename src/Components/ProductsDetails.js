@@ -75,7 +75,7 @@ export default class ProductsDetails extends Component {
       if (!listProduct) return null;
   
       return (
-        <div className="products__details">
+        <article className="products__details">
           <Link to="/">
             <AiOutlineArrowLeft className="nav__arrow" />
           </Link>
@@ -122,7 +122,7 @@ export default class ProductsDetails extends Component {
               <p className={`${listProduct.category==="men's clothing" ? "category__orange" : "category__green"} product__category`}>{listProduct.category}</p>
             </div>
           </div>
-        </div>
+        </article>
       );
     }
   }

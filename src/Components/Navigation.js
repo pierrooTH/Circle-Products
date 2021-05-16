@@ -9,7 +9,7 @@ export default class Navigation extends Component {
         return (
             // mise en place de la sideBar de navigation 
             <div className="container">
-                <div className="navigation">
+                <nav className="navigation">
                     <Link to="/"><img className="navigation__img" src={logo} alt="Faux logo Circle Products"/></Link>
                     <ul className="navigation__link">
                     <li>
@@ -25,7 +25,7 @@ export default class Navigation extends Component {
                         <a className="navigation__items" href="/">Logout</a>
                     </li>
                     </ul>
-                </div>
+                </nav>
             </div>
         )
     }
