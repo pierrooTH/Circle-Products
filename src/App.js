@@ -11,20 +11,20 @@ import ProductsDetails from './Components/ProductsDetails';
 export default function App() {
   
   /*
-  Déclaration d'une variable d'état, que l'on va appeler « productsData »
-  son état démarre avec un tableau vide
+  Déclaration de plusieurs variables d'état
   */
-  const [error, setError] = useState(null);
-  const [productsData, setProductsData] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [error, setError] = useState(null); // variable d'état error, son état initial vaut null
+  const [productsData, setProductsData] = useState([]); // variable d'état productsData, son état initial vaut un tableau vide
+  const [isLoaded, setIsLoaded] = useState(false); // variable d'état isLoaded, son état initial vaut false
 
+  // Fonction anonyme qui va permettre de mettre à jour le prix d'une donnée d'une API grâce à son ID et son prix de départ
   const updatePrice = (id, price) => {
     setProductsData((productsData) =>
     // cette fonction va créer un nouveau tableau avec les données de l'API (l'ID et le prix) 
       productsData.map((product) =>
-        product.id === Number(id)
+        product.id === Number(id) 
           ? {
-              ...product,
+              ...product, 
               price: Number(price)
             }
           : product
@@ -32,22 +32,26 @@ export default function App() {
     );
 };
 
-  // utilisation du Hook useEffect qui va nous servir a récupérer les données de l'API "fake store API"
+  // utilisation du Hook useEffect qui va nous servir a récupérer les données de l'API "fake store API" dès que celles-ci sont chargées
   useEffect(() => {
     axios.get("https://fakestoreapi.com/products?limit=7").then((res) => {
-    setIsLoaded(true);
-    setProductsData(res.data);
+    setIsLoaded(true); // à la récupération des données on change l'état de isLoaded en true
+    setProductsData(res.data); // à la récupération des données on change l'état de productsData : on ajoute les données de l'API à l'intérieur du tableau vide
     },
-    (error) => {
+    (error) => { 
       setIsLoaded(true);
       setError(error);
     }
     );
   }, []);
+  
+  /*
+  Si il y a une erreur on retourne un message d'erreur, sinon si isLoaded vaut true on retourne un chargement de la parge sinon on retourne la page qui a correctement chargée 
+  */
   if (error) {
     return <div>Erreur : {error.message}</div>
   } else if (!isLoaded) {
-    return <div>
+    return <div className="loading">
     <Oval stroke="#564AFF"/>
     <p>Loading...</p>
     </div>

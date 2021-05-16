@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import '../css/Navigation.css'
 import logo from '../Assets/logo-circle-products.png'
-import {AiOutlineMenu} from 'react-icons/ai';
 import {Link} from 'react-router-dom'
 
 export default class Navigation extends Component {
+    
     render() {
         return (
+            // mise en place de la sideBar de navigation 
             <div className="container">
                 <div className="navigation">
-                    <AiOutlineMenu className="toggle" />
                     <Link to="/"><img className="navigation__img" src={logo} alt="Faux logo Circle Products"/></Link>
                     <ul className="navigation__link">
                     <li>

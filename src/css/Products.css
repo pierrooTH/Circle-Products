@@ -45,3 +45,65 @@ thead {
     color: white;
     border-radius: 50px;
 }
+@media screen and (min-width: 1100px) {
+    .td__price {
+        width: 125px;
+    }
+}
+@media screen and (max-width: 750px) {
+    .products {
+        position: absolute;
+        width: calc(100% - 100px);
+        min-height: 100vh;
+        left: 100px;
+    }
+    table, 
+    .products__head, 
+    .products__body, 
+    tr, 
+    .table--title, 
+    .title__responsive {
+        display: block;
+    }
+
+    .products__head {
+        display: none;
+    }
+
+    .title__responsive:first-child, .title__responsive:nth-child(2), .title__responsive:nth-child(3), .title__responsive:nth-child(4){
+        padding-left: 130px;
+        position: relative;
+        margin-top: -1px;
+        background: #FFF;
+    }
+
+
+    .title__responsive:nth-child(odd) {
+        background-color: #eee;
+    }
+
+    .title__responsive::before {
+        padding: 10px;
+        content: attr(data-label);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 90px;
+        bottom: 0;
+        background-color:#564AFF;
+        color: #FFF;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        font-size: 0.9rem;
+    }
+
+    tr {
+        margin-bottom: 1rem;
+    }
+
+    .table--title + .title__responsive {
+        padding-left: 10px;
+    }
+
+}
