@@ -36,7 +36,8 @@ export default function App() {
   useEffect(() => {
     axios.get("https://fakestoreapi.com/products?limit=7").then((res) => {
     setIsLoaded(true); // à la récupération des données on change l'état de isLoaded en true
-    setProductsData(res.data); // à la récupération des données on change l'état de productsData : on ajoute les données de l'API à l'intérieur du tableau vide
+    setProductsData(res.data); // à la récupération des données on change l'état de productsData : 
+    // on ajoute les données de l'API à l'intérieur du tableau vide
     },
     (error) => { 
       setIsLoaded(true);
@@ -46,7 +47,9 @@ export default function App() {
   }, []);
   
   /*
-  Si il y a une erreur on retourne un message d'erreur, sinon si isLoaded vaut true on retourne un chargement de la parge sinon on retourne la page qui a correctement chargée 
+  Si il y a une erreur on retourne un message d'erreur, 
+  sinon si isLoaded vaut true on retourne un chargement de la parge 
+  sinon on retourne la page qui a correctement chargée 
   */
   if (error) {
     return <div>Erreur : {error.message}</div>
@@ -60,7 +63,8 @@ export default function App() {
       <div className="App">
       <Router // utilisation de react-router-dom qui permet de créer l'illusion d'avoir plusieurs pages dans notre application
       > 
-        <Navigation/>
+        <Navigation // ajout du composant Navigation, qui est le menu de l'application
+        />
         <Switch>        
           <Route // route qui renvoie un lien /products-details/id du produit 
             path="/products-details/:id"
@@ -68,7 +72,7 @@ export default function App() {
               <ProductsDetails 
                 products={productsData} // renvoie pour utilisation dans le composant « ProductsDetails » la variable d'état « productsData »
                 updatePrice={updatePrice} // renvoie pour utilisation dans le composant « ProductsDetails » la fonction « updatePrice »
-                {...props}
+                {...props} // renvoie renvoie pour utilisation dans le composant « ProductsDetails » l'ensemble des propriétés 
               />
             )}
           />
